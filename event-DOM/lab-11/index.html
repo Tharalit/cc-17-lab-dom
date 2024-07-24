@@ -1,0 +1,34 @@
+<body>
+  <button id="subtract">-</button>
+  <span>0</span>
+  <button id="add">+</button>
+  <button id="reset">Reset</button>
+</body>
+
+<script>
+
+  const subtract = document.querySelector("#subtract")
+  const add = document.querySelector("#add")
+  const count = document.querySelector("span")
+  const reset = document.querySelector("#reset")
+
+  subtract.addEventListener("click", function () {
+    const sum = +count.textContent
+    if (sum > 0) {
+      const newSum = sum - 1
+      count.textContent = newSum
+    }
+  })
+
+  add.addEventListener("click", function () {
+    const sum = +count.textContent
+    const newSum = sum + 1
+    count.textContent = newSum
+  })
+
+  reset.addEventListener("click", function(){
+    count.textContent = 0
+  })
+
+
+</script>

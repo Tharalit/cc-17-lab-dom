@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+
+  const ul = document.createElement('ul')
+  let text = prompt('Enter Something') // returnเป็นstringหรือ null
+
+  while (!(text === null || text.trim() === ''))//ถ้าเป็นfalseจะออกจากloop 
+  {
+    const li = document.createElement("li")
+    li.textContent = text //ค่าที่พิมพ์เข้ามา
+    ul.append(li) //เอาliไปใส่ในul
+    text = prompt('Enter something');
+  }
+  document.body.prepend(ul)
+
+</script>
+
+</html>

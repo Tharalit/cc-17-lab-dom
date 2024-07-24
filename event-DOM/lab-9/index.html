@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <form action="">
+    <input type="text" name="" id="" placeholder="Phone number">
+    <button>Check</button>
+    <p style="color: red;" hidden>Phone Number is required</p><br><br>
+    <p2 style="color: red;" hidden>Phone Number is invalid</p2>
+    <p3 style="color: red;" hidden>Invalid length</p3>
+  </form>
+</body>
+
+<script>
+
+const input = document.querySelector("input")
+const button = document.querySelector("button")
+const p = document.querySelector("p")
+const p2 = document.querySelector("p2")
+const p3 = document.querySelector("p3")
+
+
+
+button.addEventListener("click",function(event){
+  event.preventDefault()
+  if(!input.value){
+    p.hidden= false
+    p2.hidden= true
+    p3.hidden= true
+    return;
+  }if (isNaN(+input.value)){
+    p.hidden= true
+    p2.hidden= false
+    p3.hidden= true
+    return;
+  }
+  if(input.value.length >10){
+    p.hidden= true
+    p2.hidden= true
+    p3.hidden= false
+    return;
+  }
+  else{
+    alert("Your number is valid")
+  }
+
+})
+
+</script>
+
+</html>

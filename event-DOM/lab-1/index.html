@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+<button>Click</button>
+</body>
+
+<script>
+const button = document.querySelector("button")
+
+  button.addEventListener('click', () => alert('1'));  // (1) แสดง alert box "1"
+  button.removeEventListener('click', () => alert('1')); // (2) ไม่แสดงอะไร เพราะเรียใช้ removeEventListener
+  button.onclick = () => alert(2); // (3) แสดง alert box "2"
+  
+</script>
+
+</html>

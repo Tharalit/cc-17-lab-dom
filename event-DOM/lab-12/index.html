@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cross {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <button id="add">Add</button>
+    <div id="space">
+    </div>
+    <script>
+        const space = document.getElementById("space");
+        const addBtn = document.getElementById("add");
+        let count = 0;
+
+        function delTask(event) {
+            event.target.parentElement.remove();
+            count--;
+        }
+
+        function editTask(event) {
+            const newTask = prompt("Type a New Task");
+            if (newTask !== null) {
+                event.target.previousElementSibling.textContent = newTask;
+            }
+        }
+
+        function spanCross(event) {
+            event.target.classList.toggle("cross");
+        }
+
+        function addTask() {
+            const list = document.createElement("div");
+            const taskText = document.createElement("span");
+            taskText.textContent = `Task ${count}`;
+            const editBtn = document.createElement("button");
+            editBtn.textContent = "Edit";
+            editBtn.addEventListener("click", editTask);
+            const delBtn = document.createElement("button");
+            delBtn.textContent = "Del";
+            delBtn.addEventListener("click", delTask);
+
+            list.appendChild(taskText);
+            list.appendChild(editBtn);
+            list.appendChild(delBtn);
+            list.id = count;
+
+            space.appendChild(list);
+
+            taskText.addEventListener("click", spanCross);
+
+            count++;
+        }
+
+        addBtn.addEventListener("click", addTask);
+    </script>
+</body>
+</html>
